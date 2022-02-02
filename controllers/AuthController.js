@@ -14,7 +14,7 @@ const register = (req, res, next) => {
     let seller = new SellerModel ({
         name: req.body.name,
         email: req.body.email,
-        password: hashedPass,
+        password: req.body.password,
 
         image: req.body.image,
         service: req.body.service,
