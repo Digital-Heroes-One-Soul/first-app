@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 
 // schema for Seller.
-var UserSchema = new mongoose.Schema(
+var SellerSchema = new mongoose.Schema(
   {
     name :String,
     email: {
@@ -22,4 +22,6 @@ var UserSchema = new mongoose.Schema(
 );
 
 // Model for Seller.
-mongoose.model("User", UserSchema);
+let SellerModel = mongoose.model("seller", SellerSchema);
+
+module.exports = SellerModel
