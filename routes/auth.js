@@ -8,4 +8,7 @@ router.post('/register',AuthController.register);
 // for login exists seller.
 router.post('/login',AuthController.login);
 
+// for get all sellers for buyer.
+router.get('/sellers',AuthController.allSeller);
+
 module.exports = router

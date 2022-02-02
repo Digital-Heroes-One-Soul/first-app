@@ -73,6 +73,6 @@ const allSeller = (req , res )=>{
     }).catch(err=>{res.json({message:"An Error"})})
 }
 
-module.exports = {register,login}
+module.exports = {register,login,allSeller}
 
 
