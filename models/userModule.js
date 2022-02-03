@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 
 
-// schema for Seller.
-var SellerSchema = new mongoose.Schema(
+// schema for User.
+var UserSchema = new mongoose.Schema(
   {
     name :String,
     email: {
       type: String,
       lowercase: true,
       required: [true, "can't be blank"],
-      match: [/^[a-zA-Z0-9]+$/, "is invalid"],
       index: true,
       unique: true
     },
@@ -21,7 +20,7 @@ var SellerSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Model for Seller.
-let SellerModel = mongoose.model("seller", SellerSchema);
+// Model for User.
+let UserModel = mongoose.model("seller", UserSchema);
 
-module.exports = SellerModel
+module.exports = UserModel

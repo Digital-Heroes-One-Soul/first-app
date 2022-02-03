@@ -1,11 +1,11 @@
-const SellerModel = require("../models/sellerModule");
+const UserModel = require("../models/userModule");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const hashPass = require("password-hash");
 
 
 const register = (req, res, next) => {
-  // function to register a new seller.
+  // function to register a new User.
   let pass = hashPass.generate(req.body.password);
   bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
     if (err) {
@@ -14,7 +14,7 @@ const register = (req, res, next) => {
       });
     }
   });
-  let seller = new SellerModel({
+  let seller = new UserModel({
     name: req.body.name,
     email: req.body.email,
     password: pass,
@@ -38,11 +38,11 @@ const register = (req, res, next) => {
 };
 
 const login = (req, res, next) => {
-  // function to login exists seller.
+  // function to login exists User.
   var email = req.body.email;
   var password = req.body.password;
 
-  SellerModel.findOne({ email })
+  UserModel.findOne({ email })
     .then((user) => {
       if (user) {
         if (hashPass.verify(password, user.password)) {
@@ -67,7 +67,8 @@ const login = (req, res, next) => {
 };
 
 const allSeller = (req, res) => {
-  SellerModel.find()
+    // function get all Seller
+    UserModel.find({isSeller:true})
     .then((response) => {
       res.json({
         response,
