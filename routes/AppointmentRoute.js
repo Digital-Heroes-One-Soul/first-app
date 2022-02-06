@@ -12,6 +12,6 @@ route.get('/appointments',AppointmentController.sellerAppointments)
 route.put('/update/:id',AppointmentController.updateAppointment)
 
 // end point for delete appointment.
-route.put('/delete/:id',AppointmentController.deleteAppointment)
+route.delete('/delete/:id',AppointmentController.deleteAppointment)
 
 module.exports = route
