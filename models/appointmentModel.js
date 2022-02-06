@@ -5,8 +5,8 @@ let AppointmentSchema = mongoose.Schema({
     time : String ,
     date : String ,
     whoBooking : String,
-    whoReceived: String,
-    active :Boolean,
+    whoReceived : String,
+    active : Boolean,
     underProcess : Boolean,
     finished : Boolean
 

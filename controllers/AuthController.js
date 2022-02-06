@@ -14,7 +14,7 @@ const register = (req, res, next) => {
       });
     }
   });
-  let seller = new UserModel({
+  let user = new UserModel({
     name: req.body.name,
     email: req.body.email,
     password: pass,
@@ -23,7 +23,7 @@ const register = (req, res, next) => {
     service: req.body.service,
     isSeller: req.body.isSeller,
   });
-  seller
+  user
     .save()
     .then((seller) => {
       res.json({
@@ -47,7 +47,7 @@ const login = (req, res, next) => {
       if (user) {
         if (hashPass.verify(password, user.password)) {
           let token = jwt.sign(
-            { name: user.name, isSeller: user.isSeller },
+            { name: user.name, isSeller: user.isSeller},
             "verySecretValue",
             {
               expiresIn: "1h",
@@ -67,7 +67,7 @@ const login = (req, res, next) => {
 };
 
 const allSeller = (req, res) => {
-    // function get all Seller
+    // function get all Sellers.
     UserModel.find({isSeller:true})
     .then((response) => {
       res.json({
