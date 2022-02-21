@@ -12,8 +12,6 @@ const sellerAppointments = (req,res)=>{
 
 }
 
-
-
 const createAppointment = (req, res) => {
     // function to create a new appointment.
 

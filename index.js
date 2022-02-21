@@ -20,4 +20,6 @@ app.use('/api',AuthRoute)
 // end point for appointment.
 app.use('/api/appointment',AppointmentRoute)
 
+app.get("/", (req, res) => res.send("Hello World!"));
+
 app.listen(port ,()=> console.log(`On Port ${port}`))
